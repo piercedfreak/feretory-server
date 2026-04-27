@@ -14,8 +14,8 @@ app.use(express.json());
 // Public static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-const adminUser = process.env.ADMIN_USER || 'freak';
-const adminPassword = process.env.ADMIN_PASSWORD || 'azsxmknj';
+const adminUser = process.env.ADMIN_USER || 'admin';
+const adminPassword = process.env.ADMIN_PASSWORD || 'changeme';
 
 const adminAuth = basicAuth({
   users: {
