@@ -2,12 +2,17 @@ require('dotenv').config();
 
 const express = require('express');
 const basicAuth = require('express-basic-auth');
+const path = require('path');
+
 const db = require('./db');
 const { scanOnce } = require('./scanner');
 const { startBot, sendAlerts } = require('./bot');
 
 const app = express();
 app.use(express.json());
+
+// Public static files
+app.use(express.static(path.join(__dirname, 'public')));
 
 const adminUser = process.env.ADMIN_USER || 'freak';
 const adminPassword = process.env.ADMIN_PASSWORD || 'azsxmknj';
@@ -40,6 +45,16 @@ async function runScanAndAlert() {
   }
 }
 
+// Public Privacy Policy URL
+app.get('/privacy', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
+});
+
+// Public Terms of Service URL
+app.get('/terms', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'terms.html'));
+});
+
 app.get('/', adminAuth, (req, res) => {
   const finds = db.prepare(`
     SELECT id, plugin_name, title, link, score, status, created_at
@@ -66,7 +81,9 @@ app.get('/', adminAuth, (req, res) => {
           <a href="/scan">Run scan now</a> |
           <a href="/training">Training</a> |
           <a href="/api/finds">API Finds</a> |
-          <a href="/health">Health</a>
+          <a href="/health">Health</a> |
+          <a href="/privacy">Privacy</a> |
+          <a href="/terms">Terms</a>
         </div>
 
         ${finds.length ? finds.map(f => `
@@ -125,7 +142,9 @@ app.get('/training', adminAuth, (req, res) => {
         <h1>Training Terms</h1>
         <div class="nav">
           <a href="/">Back</a> |
-          <a href="/scan">Run scan now</a>
+          <a href="/scan">Run scan now</a> |
+          <a href="/privacy">Privacy</a> |
+          <a href="/terms">Terms</a>
         </div>
 
         ${rows.length ? `
