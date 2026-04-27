@@ -1,0 +1,19 @@
+{
+  "name": "feretory-server",
+  "version": "0.1.0",
+  "description": "Hosted Feretory scanner with Discord feedback training",
+  "main": "server.js",
+  "author": "piercedfreak",
+  "license": "GPL-3.0",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "discord.js": "^14.19.3",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-basic-auth": "^1.2.1"
+  }
+}

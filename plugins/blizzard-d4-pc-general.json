@@ -1,0 +1,64 @@
+{
+  "id": "blizzard-d4-pc-general",
+  "name": "Blizzard D4 PC General",
+  "enabled": true,
+  "url": "https://us.forums.blizzard.com/en/d4/c/pc-general-discussion/5.json",
+  "maxPages": 2,
+  "paginationType": "page-param",
+  "headers": {
+    "accept": "application/json"
+  },
+  "type": "json-feed",
+  "linkTemplate": "https://us.forums.blizzard.com/en/d4/t/{slug}/{id}",
+  "itemPath": "topic_list.topics",
+  "fields": {
+    "title": "title",
+    "body": "excerpt",
+    "link": "slug",
+    "id": "id"
+  },
+  "score": {
+    "terms": {
+      "item shop": 6,
+      "cash shop": 6,
+      "shop update": 5,
+      "store update": 5,
+      "new cosmetic": 5,
+      "free cosmetic": 6,
+      "free mount": 6,
+      "free skin": 6,
+      "free bundle": 5,
+      "twitch drop": 7,
+      "prime gaming": 7,
+      "promotion": 3,
+      "promo": 3,
+      "cosmetic": 3,
+      "mount armor": 4,
+      "skin": 2
+    },
+    "penalties": {
+      "build": -4,
+      "paragon": -4,
+      "skill tree": -4,
+      "season journey": -5,
+      "nightmare dungeon": -4,
+      "pit": -3,
+      "boss": -3,
+      "temper": -4,
+      "tempering": -4,
+      "masterwork": -4,
+      "disconnect": -5,
+      "latency": -5,
+      "rubberbanding": -5,
+      "crash": -5,
+      "controller": -4,
+      "bug report": -5,
+      "technical support": -5,
+      "help me": -3,
+      "how do i": -3
+    },
+    "titleMultiplier": 2,
+    "bodyMultiplier": 1,
+    "minimumScore": 8
+  }
+}
