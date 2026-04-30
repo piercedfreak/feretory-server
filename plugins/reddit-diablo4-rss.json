@@ -1,0 +1,93 @@
+{
+  "id": "reddit-diablo4-rss",
+  "name": "Reddit Diablo 4 RSS",
+  "description": "Feretory Reddit RSS scanner for r/diablo4.",
+  "enabled": true,
+  "type": "rss-feed",
+  "url": "https://www.reddit.com/r/diablo4/new/.rss",
+  "headers": {
+    "user-agent": "Mozilla/5.0 linux:feretory:v1.0.0 by /u/freak",
+    "accept": "application/rss+xml, application/xml, text/xml"
+  },
+  "fields": {
+    "id": "id",
+    "title": "title",
+    "body": "contentSnippet",
+    "link": "link",
+    "author": "creator",
+    "created": "isoDate"
+  },
+  "score": {
+    "terms": {
+      "item shop": 8,
+      "cash shop": 8,
+      "shop update": 7,
+      "store update": 7,
+      "new cosmetic": 7,
+      "free cosmetic": 10,
+      "free reward": 10,
+      "free mount": 10,
+      "twitch drop": 12,
+      "twitch drops": 12,
+      "prime gaming": 11,
+      "promo": 8,
+      "promotion": 8,
+      "code": 7,
+      "redeem": 8,
+      "giveaway": 9,
+      "limited time": 8,
+      "battle pass": 7,
+      "cosmetic": 5,
+      "mount": 5,
+      "transmog": 6,
+      "armor set": 5,
+      "bundle": 5,
+      "platinum": 5,
+      "blizzard store": 6
+    },
+    "requiredAny": [
+      "shop",
+      "store",
+      "cosmetic",
+      "mount",
+      "transmog",
+      "reward",
+      "promo",
+      "drop",
+      "twitch",
+      "redeem",
+      "battle pass",
+      "platinum"
+    ],
+    "blacklist": [
+      "build guide",
+      "damage",
+      "dps",
+      "class balance",
+      "tier list",
+      "server down",
+      "disconnect",
+      "lag",
+      "bug",
+      "crash",
+      "hardcore death",
+      "lfg",
+      "trade",
+      "patch notes",
+      "hotfix"
+    ],
+    "minimumScore": 8
+  },
+  "dedupe": {
+    "key": "id",
+    "ttlHours": 168
+  },
+  "alerts": {
+    "enabled": true,
+    "discord": true,
+    "title": "Feretory Diablo 4 Reddit RSS Match",
+    "includeScore": true,
+    "includeSource": true,
+    "includeExcerpt": true
+  }
+}

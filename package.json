@@ -1,6 +1,6 @@
 {
   "name": "feretory-server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Hosted Feretory scanner with Discord feedback training",
   "main": "server.js",
   "author": "piercedfreak",
@@ -14,6 +14,7 @@
     "discord.js": "^14.19.3",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "express-basic-auth": "^1.2.1"
+    "express-basic-auth": "^1.2.1",
+    "rss-parser": "^3.13.0"
   }
 }
